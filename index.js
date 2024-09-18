@@ -1,14 +1,14 @@
 const round = document.getElementById("round");
 
 const colorFLag = {
-    'time-a': 'background: linear-gradient(180deg, #FF0000 0%, rgba(233, 101, 101, 0.3) 100%);',
-    'time-b': 'background: linear-gradient(180deg, #0038FF 0%, rgba(0, 56, 255, 0.3) 100%);',
-    'time-c': 'background: linear-gradient(180deg, #FF9900 0%, rgba(255, 153, 0, 0.3) 100%);',
-    'time-d': 'background: linear-gradient(180deg, #72CB00 0%, rgba(114, 203, 0, 0.3) 100%);',
-    'time-e': 'background: linear-gradient(180deg, #00C797 0%, rgba(0, 199, 151, 0.3) 100%);',
-    'time-f': 'background: linear-gradient(180deg, #0088D4 0%, rgba(34, 176, 255, 0.3) 100%);',
-    'time-g': 'background: linear-gradient(180deg, #AD00FF 0%, rgba(191, 101, 233, 0.3) 100%);',
-    'time-h': 'background: linear-gradient(180deg, #FF00E6 0%, rgba(255, 0, 214, 0.3) 100%);'
+    'time-a': './Assets/flags/team_shield_a.svg',
+    'time-b': './Assets/flags/team_shield_b.svg',
+    'time-c': './Assets/flags/team_shield_c.svg',
+    'time-d': './Assets/flags/team_shield_d.svg',
+    'time-e': './Assets/flags/team_shield_e.svg',
+    'time-f': './Assets/flags/team_shield_f.svg',
+    'time-g': './Assets/flags/team_shield_g.svg',
+    'time-h': './Assets/flags/team_shield_h.svg'
 }
 
 const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
@@ -20,7 +20,7 @@ const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     
     const img1 = document.createElement('img');
     img1.className = 'flag';
-    img1.src = './Assets/team_shield_a.png';
+    img1.src = colorFLag[flag1];
     
     const spanName1 = document.createElement('span');
     spanName1.className = 'team_name';
@@ -53,8 +53,8 @@ const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     divScore.appendChild(spanVs);
     divScore.appendChild(spanScore2);
     
-    const spanFlag2 = document.createElement('span');
-    spanFlag2.className = 'team-flag';
+    const divFlag2 = document.createElement('div');
+    divFlag2.className = 'team-flag';
     
     const spanName2 = document.createElement('span');
     spanName2.className = 'team_name';
@@ -62,14 +62,14 @@ const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     
     const img2 = document.createElement('img');
     img2.className = 'flag';
-    img2.src = './Assets/team_shield_a.png';
+    img2.src = colorFLag[flag2];
     
-    spanFlag2.appendChild(spanName2);
-    spanFlag2.appendChild(img2);
+    divFlag2.appendChild(spanName2);
+    divFlag2.appendChild(img2);
     
     li.appendChild(divFlag1);
     li.appendChild(divScore);
-    li.appendChild(spanFlag2);
+    li.appendChild(divFlag2);
     
     document.querySelector('ul').appendChild(li);
 
