@@ -1,12 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
     width: 100svw;
     height: 100svh;
-    box-sizing: border-box;
+    font-family: "Inter";
 }
 
 #top-bar{
@@ -17,7 +18,6 @@ body{
     align-items: center;
     justify-content: center;
     & h1{
-        font-family: "Inter";
         font-size: 22px;
         font-weight: 900;
         color: white;
@@ -35,7 +35,6 @@ main{
     justify-content: center;
 
     & #title{
-        font-family: "Inter";
         font-size: 26px;
         font-weight: 400;
         text-align: center;
@@ -47,6 +46,35 @@ main{
         height: 394px;
         border-radius: 10px;
         border: 1px solid #DDD;
+        padding: 18px 16px;
+       
+
+        & #top-card{
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            & #text-card{
+                font-size: 16px;
+                font-weight: 400;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                & strong{
+                    font-size: 12px;
+                }
+            }
+            & .btn{
+                width: 30px;
+                height: 30px;
+                background-color: #33B667;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
     }
 }
 
