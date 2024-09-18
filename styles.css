@@ -1,4 +1,9 @@
-htlm{
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
     width: 100svw;
     height: 100svh;
     box-sizing: border-box;
@@ -12,7 +17,7 @@ htlm{
     align-items: center;
     justify-content: center;
     & h1{
-        font-family: Inter;
+        font-family: "Inter";
         font-size: 22px;
         font-weight: 900;
         color: white;
@@ -20,3 +25,28 @@ htlm{
         top: -5px;
     }
 }
+
+main{
+    width: 100%;
+    height: calc(100vh - 76px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & #title{
+        font-family: "Inter";
+        font-size: 26px;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 66px;
+    }
+
+    & #card{
+        width: 340px;
+        height: 394px;
+        border-radius: 10px;
+        border: 1px solid #DDD;
+    }
+}
+
