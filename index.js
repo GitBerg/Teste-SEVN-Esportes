@@ -1,5 +1,16 @@
 const round = document.getElementById("round");
 
+const colorFLag = {
+    'timetime-a': 'background: linear-gradient(180deg, #FF0000 0%, rgba(233, 101, 101, 0.3) 100%);',
+    'timetime-b': 'background: linear-gradient(180deg, #0038FF 0%, rgba(0, 56, 255, 0.3) 100%);',
+    'timetime-c': 'background: linear-gradient(180deg, #FF9900 0%, rgba(255, 153, 0, 0.3) 100%);',
+    'timetime-d': 'background: linear-gradient(180deg, #72CB00 0%, rgba(114, 203, 0, 0.3) 100%);',
+    'timetime-e': 'background: linear-gradient(180deg, #00C797 0%, rgba(0, 199, 151, 0.3) 100%);',
+    'timetime-f': 'background: linear-gradient(180deg, #0088D4 0%, rgba(34, 176, 255, 0.3) 100%);',
+    'timetime-g': 'background: linear-gradient(180deg, #AD00FF 0%, rgba(191, 101, 233, 0.3) 100%);',
+    'timetime-h': 'background: linear-gradient(180deg, #FF00E6 0%, rgba(255, 0, 214, 0.3) 100%);'
+}
+
 const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     const li = document.createElement('li');
     li.id = 'first-block';
@@ -69,7 +80,7 @@ const buildResults = async () => {
     const data = await fetchData();
     buildRound(data[current_round].round);
     data[current_round].games.forEach(element => {
-        
+        createBlock()
     });
 }
 
