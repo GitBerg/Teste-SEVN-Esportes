@@ -6,6 +6,7 @@ const ul = document.querySelector('ul');
 let current_round = 0;
 let qtd_pages;
 
+// Objeto responsvavel por definir as cores das flags.
 const colorFLag = {
     'time-a': './Assets/flags/team_shield_a.svg',
     'time-b': './Assets/flags/team_shield_b.svg',
@@ -17,6 +18,7 @@ const colorFLag = {
     'time-h': './Assets/flags/team_shield_h.svg'
 }
 
+// Função responsável por criar dinâmicamente o componente com a lista de resultados. 
 const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     const li = document.createElement('li');
 
@@ -80,6 +82,7 @@ const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
 
 }
 
+// Função responsável por criar o componente de carregamento.
 const Loading = () =>{
     const div = document.createElement('div');
     div.id = 'loading';
@@ -89,6 +92,7 @@ const Loading = () =>{
     document.querySelector('#card').appendChild(div)
 }
 
+// Função responsável por carregar os dados.
 const fetchData = async () => {
     Loading();
     try {
@@ -101,9 +105,12 @@ const fetchData = async () => {
     
 }
 
+// Função que atribui o valor da rodada.
 const buildRound = (data) =>{
     round.innerText = data;
 }
+
+// Função principal de criação dos componentes.
 const buildResults = async (current_round) => {
     const data = await fetchData();
     qtd_pages = data.length;
@@ -115,6 +122,7 @@ const buildResults = async (current_round) => {
     document.querySelector('#loading').remove()
 }
 
+// Funções dos botões de navegação.
 const nextRound = async () => {
     if(current_round < qtd_pages - 1){
         current_round++
