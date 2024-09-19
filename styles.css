@@ -9,6 +9,8 @@ body{
     height: 100svh;
     min-width: 360px;
     font-family: "Inter";
+    display: flex;
+    flex-direction: column;
 }
 
 #top-bar{
@@ -33,7 +35,6 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     & #title{
         font-size: 26px;
         font-weight: 400;
@@ -158,7 +159,16 @@ main{
 }
 
 @media (max-height: 600px) {
+
+    body{
+        height: auto;
+        width: auto;
+        
+    }
+
     main{
+        overflow: scroll;
+        min-height: 280px;
         #title{
             margin-bottom: 15px;
         }
@@ -176,6 +186,24 @@ main{
     #loading{
         width: 200px;
         height: 200px;
+    }
+}
+
+@media (max-height: 400px) {
+    main{
+        #card{
+            padding-bottom: 12px;
+            ul{
+                gap: 10px; 
+                li{
+                    gap: 10px;
+                    height: 50px;
+                }
+                li:nth-child(3){
+                    border: none;
+                }
+            }
+        }
     }
 }
 
