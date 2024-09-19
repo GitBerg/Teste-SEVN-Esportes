@@ -112,14 +112,19 @@ const buildRound = (data) =>{
 
 // Função principal de criação dos componentes.
 const buildResults = async (current_round) => {
-    const data = await fetchData();
+    if(!sessionStorage.getItem('games')){
+        const response = await fetchData();
+        let response_string = JSON.stringify(response);
+        sessionStorage.setItem('games', response_string);
+        document.querySelector('#loading').remove()
+    }
+    const data = JSON.parse(sessionStorage.getItem('games'))
     qtd_pages = data.length;
     buildRound(data[current_round].round);
     data[current_round].games.forEach(element => {
         const {team_home_id, team_home_name, team_home_score, team_away_id, team_away_name, team_away_score} = element
         createBlock(team_home_id, team_home_name, team_home_score, team_away_id, team_away_name, team_away_score)
     });
-    document.querySelector('#loading').remove()
 }
 
 // Funções dos botões de navegação.
