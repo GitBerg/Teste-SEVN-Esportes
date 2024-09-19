@@ -1,7 +1,6 @@
 const round = document.getElementById("round");
 const next = document.getElementById("next");
 const previous = document.getElementById("prev");
-
 const ul = document.querySelector('ul');
 
 let current_round = 0;
@@ -92,15 +91,19 @@ const Loading = () =>{
 
 const fetchData = async () => {
     Loading();
-    const response = await fetch('https://sevn-pleno-esportes.deno.dev/');
-    const data = await response.json();
-    return data
+    try {
+        const response = await fetch('https://sevn-pleno-esportes.deno.dev/');
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.error('Não foi possivel carregar os dados', error);
+    }
+    
 }
 
 const buildRound = (data) =>{
     round.innerText = data;
 }
-
 const buildResults = async (current_round) => {
     const data = await fetchData();
     qtd_pages = data.length;
@@ -116,9 +119,9 @@ const nextRound = async () => {
     if(current_round < qtd_pages - 1){
         current_round++
         ul.innerHTML = '';
-        await buildResults(current_round)
         next.style.backgroundColor = "#33B667"
         previous.style.backgroundColor = "#33B667"
+        await buildResults(current_round)
     }if(current_round === qtd_pages - 1 ){
         next.style.backgroundColor = "#808080"
     }
@@ -131,7 +134,7 @@ const prevRound = async () => {
         previous.style.backgroundColor = "#33B667"
         next.style.backgroundColor = "#33B667"
         current_round--
-        ul.innerHTML = '';     
+        ul.innerHTML = '';  
         await buildResults(current_round)
     }if(current_round === 0){
         previous.style.backgroundColor = "#808080"
