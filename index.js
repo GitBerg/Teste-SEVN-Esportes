@@ -18,7 +18,7 @@ const colorFLag = {
 
 const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     const li = document.createElement('li');
-     
+
     const divFlag1 = document.createElement('div');
     divFlag1.className = 'team-flag';
     
@@ -106,15 +106,25 @@ const nextRound = async () => {
     if(current_round < qtd_pages - 1){
         current_round++
         ul.innerHTML = '';
-        buildResults(current_round)
+        await buildResults(current_round)
+        next.style.backgroundColor = "#33B667"
+        previous.style.backgroundColor = "#33B667"
+    }if(current_round === qtd_pages - 1 ){
+        next.style.backgroundColor = "#808080"
     }
+        
+    
 }
 
-const prevRound = () => {
+const prevRound = async () => {
     if(current_round > 0 ){
+        previous.style.backgroundColor = "#33B667"
+        next.style.backgroundColor = "#33B667"
         current_round--
-        ul.innerHTML = '';
-        buildResults(current_round)
+        ul.innerHTML = '';     
+        await buildResults(current_round)
+    }if(current_round === 0){
+        previous.style.backgroundColor = "#808080"
     }
 }
 

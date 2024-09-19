@@ -74,6 +74,10 @@ main{
                 cursor: pointer;
                 user-select: none;
             }
+
+            #prev{
+                background-color: #808080;
+            }
         }
 
         & ul{
