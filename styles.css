@@ -167,7 +167,6 @@ main{
     }
 
     main{
-        overflow: scroll;
         min-height: 280px;
         #title{
             margin-bottom: 15px;
