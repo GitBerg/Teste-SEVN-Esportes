@@ -87,7 +87,7 @@ const Loading = () =>{
     const effect = document.createElement('div');
     effect.id = 'effect';
     div.appendChild(effect);
-    ul.appendChild(div)
+    document.querySelector('#card').appendChild(div)
 }
 
 const fetchData = async () => {
