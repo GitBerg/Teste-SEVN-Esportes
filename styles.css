@@ -124,3 +124,28 @@ main{
     }
 }
 
+@keyframes slidein{
+    from {
+      transform: translateX(-50px);
+    }
+    to {
+      transform: translateX(300px);
+    }
+  }
+
+
+#loading{
+    width: 310px;
+    height: 300px;
+    position: absolute;
+    background: #FFF;
+    opacity: 0.5;
+    overflow: hidden;
+    #effect{
+        width: 30%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 4%, rgba(255,255,255,0.5242471988795518) 10%, rgba(128,128,128,0.700717787114846) 100%);
+        animation: 800ms linear infinite running slidein;
+    }
+}
+

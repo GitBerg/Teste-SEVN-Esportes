@@ -4,6 +4,8 @@ const previous = document.getElementById("prev");
 
 const ul = document.querySelector('ul');
 
+let current_round = 0;
+let qtd_pages;
 
 const colorFLag = {
     'time-a': './Assets/flags/team_shield_a.svg',
@@ -75,14 +77,21 @@ const createBlock = (flag1, name1, score1, flag2, name2, score2) => {
     li.appendChild(divScore);
     li.appendChild(divFlag2);
     
-    document.querySelector('ul').appendChild(li);
+    ul.appendChild(li);
 
 }
 
-let current_round = 0;
-let qtd_pages;
+const Loading = () =>{
+    const div = document.createElement('div');
+    div.id = 'loading';
+    const effect = document.createElement('div');
+    effect.id = 'effect';
+    div.appendChild(effect);
+    ul.appendChild(div)
+}
 
 const fetchData = async () => {
+    Loading();
     const response = await fetch('https://sevn-pleno-esportes.deno.dev/');
     const data = await response.json();
     return data
@@ -100,6 +109,7 @@ const buildResults = async (current_round) => {
         const {team_home_id, team_home_name, team_home_score, team_away_id, team_away_name, team_away_score} = element
         createBlock(team_home_id, team_home_name, team_home_score, team_away_id, team_away_name, team_away_score)
     });
+    document.querySelector('#loading').remove()
 }
 
 const nextRound = async () => {
